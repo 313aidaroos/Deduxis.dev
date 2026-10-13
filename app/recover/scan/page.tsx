@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader, SiteFooter } from "@/components/site-header";
-import { SignInWithApixis } from "@/components/SignInWithApixis";
 import { createServerSupabaseClient } from "@/lib/supabase-server";
 import { ScanForm } from "./scan-form";
 
@@ -57,7 +56,6 @@ export default async function RecoverScanPage() {
                 Free scans are for signed-in Apixis ID accounts. One Apixis
                 account covers Deduxis and the rest of the family.
               </p>
-              <SignInWithApixis next="/recover/scan" />
               <div className="button-row">
                 <Link
                   className="button primary"
