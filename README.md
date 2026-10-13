@@ -42,7 +42,6 @@ Visit http://localhost:3000
 
 - **Receipt Intelligence seat**: 15,000 Ixis/month ($150)
   - Includes 200 receipts/month
-  - Extra receipts metered via Apixis Wallet
 
 ## Features
 
