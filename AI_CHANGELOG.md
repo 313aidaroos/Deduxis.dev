@@ -69,3 +69,7 @@ Entry format:
 ## 2026-10-13 — Deduxis Lead via cloud agent
 - Changed: Recover section at `/recover` and a signed-in free-scan intake at `/recover/scan`, Recover in the nav and footer, and the locked pricing card (Receipts Personal $10, Receipts Business $30, Recover 25% of money recovered, Monitor $100 with a 15% fee, contact sales). Migration file `supabase/migrations/20261013_recover_scan_requests.sql` is in the repo and was not applied. No Stripe charge was added.
 - Why: Awad approved merging Recovra (Recovix) into Deduxis as the Recover section. The recovra site should redirect to Deduxis `/recover`; that other repo was not changed.
+
+## 2026-10-13 — Deduxis Lead via cloud agent
+- Changed: notes only. Instagram and Facebook footer icons were not added.
+- Why: The likely @deduxis.dev profiles could not be confirmed. Both sites returned a login wall, and the public checks did not show a Deduxis account.

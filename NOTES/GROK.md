@@ -242,3 +242,9 @@ Recorded by Grok (Developer Bot, notes and status sync at 12:25 AM CT on Oct 5).
 - **Left alone:** Apixis-ID-only signup, owner allowlist, Cixy v2, the feed, Wallet SDK files, and live redeem at `/api/redeem`. No religious greetings. No other repository was changed.
 - **Redirect note:** The recovra site (Recovix.dev, also recovra-three.vercel.app) should redirect to Deduxis `/recover`. Do that in the Recovix repo. This PR does not change that repo.
 - **Undo:** `git revert <squash sha of this PR>` on `main`. If the migration was applied later, also run: `DROP POLICY "Users insert own recover scans" ON public.recover_scan_requests; DROP POLICY "Users view own recover scans" ON public.recover_scan_requests; DROP TABLE public.recover_scan_requests;` (that deletes scan requests, so back up first). The migration was not applied from this PR.
+
+## 2026-10-13 — Footer social icons left out (Deduxis Lead via cloud agent)
+- **What:** No Instagram or Facebook icon was added to the site footer. The likely handles (`instagram.com/deduxis.dev`, `instagram.com/deduxis`, `instagram.com/deduxisdev`, `facebook.com/deduxis.dev`, `facebook.com/Deduxis.dev`, `facebook.com/deduxis`) could not be confirmed as Deduxis accounts. Instagram and Facebook both sent a logged-out browser to a login wall. Instagram’s public profile API returned Page Not Found for `deduxis` and `deduxisdev`. `deduxis.dev` returned an Instagram schema error, not a profile. Facebook’s Graph API said the object `deduxis.dev` does not exist or cannot be loaded. Nothing in this repo links those profiles.
+- **Where:** Footer stays `components/site-header.tsx` (`SiteFooter`). No icon markup, no new CSS.
+- **Who:** Deduxis Lead via cloud agent.
+- **Undo:** Nothing to revert for the icons. This note is the record.
