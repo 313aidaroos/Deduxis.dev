@@ -202,7 +202,7 @@ export default function Home() {
               ],
               [
                 "How does the monthly plan work?",
-                "The Receipt Intelligence seat costs 15,000 Ixis per month and includes 200 receipts per seat period. Redeem it through Apixis Wallet. See pricing for details.",
+                "Receipts Personal is $10 a month (up to 100 receipts). Receipts Business is $30 a month. Recover starts with a free scan, then 25% of money recovered. Monitor is $100 a month, and those subscribers pay 15%. See pricing.",
               ],
             ].map(([q, a]) => (
               <details key={q}>

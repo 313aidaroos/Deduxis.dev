@@ -16,3 +16,6 @@
 - Big companies: contact sales.
 - Card or Ixis. Old Recovra Wallet SKUs (recovra.intel.monthly $220, recovra.intel.growth $440) to be retired.
 - Update 12:08 AM CT: Monitor subscribers pay 15% (not 25%) on anything recovered.
+
+## 2026-10-13 — shown in the app
+`/pricing` and `/recover` list these rates. The page does not charge a card. The recovra / recovix site should redirect to Deduxis `/recover`. That redirect is outside this repo and was not changed here.

@@ -1829,3 +1829,105 @@ dialog h2 {
 }
 
 @media(max-width:760px){.workspace-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));overflow:visible;gap:4px;padding-bottom:4px}.workspace-nav a{flex-direction:column;padding:10px 3px;gap:9px;font-size:10px}.workspace-nav .nav-symbol{font-size:19px}}
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.plan-card {
+  background: white;
+  border: 1px solid #d7dff4;
+  border-radius: 18px;
+  padding: 28px 26px 26px;
+  box-shadow: 0 15px 55px #0e46b20a;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.plan-card.featured {
+  background: #ecedff;
+}
+.plan-card h2 {
+  font-size: 28px;
+  margin: 6px 0 0;
+}
+.plan-card .price-number {
+  font-size: 40px;
+  margin-top: 8px;
+}
+.plan-card p {
+  color: #5d6276;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 18px;
+  display: grid;
+  gap: 10px;
+  font-size: 13px;
+}
+.plan-card li {
+  display: flex;
+  gap: 10px;
+}
+.plan-card li::before {
+  content: "✓";
+  color: var(--blue);
+}
+.plan-card .button {
+  margin-top: auto;
+}
+.recover-pricing {
+  margin-top: 28px;
+  padding-bottom: 20px;
+}
+.recover-pricing h2 {
+  font-size: 42px;
+  line-height: 1.08;
+  margin: 16px 0;
+}
+.scan-card {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.choice-list {
+  border: 0;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.choice-list legend {
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.choice-list label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.choice-list input {
+  width: auto;
+}
+@media (max-width: 980px) {
+  .plan-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .plan-grid {
+    grid-template-columns: 1fr;
+  }
+  .recover-pricing h2 {
+    font-size: 32px;
+  }
+}
+
