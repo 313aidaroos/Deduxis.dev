@@ -40,8 +40,13 @@ Visit http://localhost:3000
 
 ## Pricing
 
-- **Receipt Intelligence seat**: 15,000 Ixis/month ($150)
-  - Includes 200 receipts/month
+Locked rates (card or Ixis, 100 Ixis = $1). The pricing page lists them and does not charge a card.
+
+- **Receipts Personal**: $10/month, up to 100 receipts
+- **Receipts Business**: $30/month, unlimited receipts, team, accountant export
+- **Recover**: free scan, then 25% of money recovered (no recovery, no charge)
+- **Monitor**: $100/month, and Monitor subscribers pay a 15% success fee
+- **Big companies**: contact sales
 
 ## Features
 

@@ -20,6 +20,9 @@ export function SiteHeader() {
           <Link onClick={() => setOpen(false)} href="/#features">
             Features
           </Link>
+          <Link onClick={() => setOpen(false)} href="/recover">
+            Recover
+          </Link>
           <Link onClick={() => setOpen(false)} href="/companies">Apixis Companies</Link>
           <Link onClick={() => setOpen(false)} href="/feed">Feed</Link>
           <Link onClick={() => setOpen(false)} href="/pricing">
@@ -60,6 +63,7 @@ export function SiteFooter() {
         <span className="family">Part of the Apixis family</span>
       </div>
       <nav aria-label="Footer navigation">
+        <Link href="/recover">Recover</Link>
         <Link href="/#faq">Questions & answers</Link>
         <Link href="/pricing">Pricing</Link>
         <Link href="/chat">Ask Cixy</Link>
