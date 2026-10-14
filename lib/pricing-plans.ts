@@ -1,5 +1,6 @@
-/** Locked rates (Awad, 2026-10-06). Display only: this module does not charge a card or redeem Ixis. */
+/** Locked rates (Awad, 2026-10-06). Checkout lives in PlanPay; this list is the copy. */
 export type PricingPlan = {
+  id: "receipts_personal" | "receipts_business" | "recover" | "monitor" | "enterprise";
   name: string;
   kicker: string;
   badge: "lavender" | "peach" | "mint" | "yellow";
@@ -10,6 +11,8 @@ export type PricingPlan = {
   points: string[];
   href: string;
   cta: string;
+  /** subscribe = card or Ixis. scan and contact do not charge here. */
+  action: "subscribe" | "scan" | "contact";
   featured?: boolean;
 };
 
@@ -17,6 +20,7 @@ export const IXIS_PER_DOLLAR = 100;
 
 export const PRICING_PLANS: PricingPlan[] = [
   {
+    id: "receipts_personal",
     name: "Receipts Personal",
     kicker: "Receipts",
     badge: "lavender",
@@ -31,8 +35,10 @@ export const PRICING_PLANS: PricingPlan[] = [
     ],
     href: "/login?next=/pricing",
     cta: "Sign in",
+    action: "subscribe",
   },
   {
+    id: "receipts_business",
     name: "Receipts Business",
     kicker: "Receipts",
     badge: "peach",
@@ -47,9 +53,11 @@ export const PRICING_PLANS: PricingPlan[] = [
     ],
     href: "/login?next=/pricing",
     cta: "Sign in",
+    action: "subscribe",
     featured: true,
   },
   {
+    id: "recover",
     name: "Recover",
     kicker: "Free scan",
     badge: "mint",
@@ -64,8 +72,10 @@ export const PRICING_PLANS: PricingPlan[] = [
     ],
     href: "/recover/scan",
     cta: "Request a free scan",
+    action: "scan",
   },
   {
+    id: "monitor",
     name: "Monitor",
     kicker: "Every new bill",
     badge: "yellow",
@@ -80,9 +90,11 @@ export const PRICING_PLANS: PricingPlan[] = [
     ],
     href: "/login?next=/pricing",
     cta: "Sign in",
+    action: "subscribe",
   },
   {
-    name: "Big companies",
+    id: "enterprise",
+    name: "Enterprise",
     kicker: "Contact sales",
     badge: "lavender",
     price: "Custom",
@@ -96,5 +108,6 @@ export const PRICING_PLANS: PricingPlan[] = [
     ],
     href: "/support",
     cta: "Contact sales",
+    action: "contact",
   },
 ];

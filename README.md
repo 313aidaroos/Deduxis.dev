@@ -40,7 +40,7 @@ Visit http://localhost:3000
 
 ## Pricing
 
-Locked rates (card or Ixis, 100 Ixis = $1). The pricing page lists them and does not charge a card.
+Locked rates (card or Ixis, 100 Ixis = $1). The pricing page can start card checkout or an Ixis redeem. Live Stripe Price ids and the purchase-ledger migration are still owner steps. See `docs/LAUNCH_READINESS.md`.
 
 - **Receipts Personal**: $10/month, up to 100 receipts
 - **Receipts Business**: $30/month, unlimited receipts, team, accountant export

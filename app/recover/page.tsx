@@ -204,8 +204,8 @@ export default function RecoverPage() {
             Pay by card or with Ixis. Receipts Personal is $10 a month. Receipts
             Business is $30 a month. Recover is a free scan, then 25% of money
             recovered. Monitor is $100 a month, and Monitor subscribers pay a
-            15% success fee. The buttons on this page sign you in or open a
-            request. They do not charge a card.
+            15% success fee. Monthly plans renew each month. The free scan does
+            not charge a card.
           </p>
         </section>
 

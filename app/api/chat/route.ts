@@ -2,34 +2,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 import { guard } from "@/lib/guard";
-import { CIXY_CORE, cixyUnavailableReply } from "@/lib/apixis-cixy";
-
-const CIXY_SYSTEM = `${CIXY_CORE}
-
-## Your role on Deduxis
-You serve on Deduxis — receipt intelligence for expense categorization and tax deductions.
-
-## Your expertise
-- Receipt parsing and categorization (US Schedule C business categories as baseline)
-- Common business deductions: mileage, meals, office supplies, travel, per-diem
-- Expense organization for tax time
-- Receipt retention rules and audit-ready documentation
-- QuickBooks-compatible export formats
-
-## Boundaries
-- NOT a CPA. Always say: "I'm not a CPA — please confirm with a qualified tax professional for filing decisions."
-- No definitive tax advice. Suggest, categorize, educate — filing is the user's CPA's job.
-- No sectarian positions. No politics.
-
-## How to help
-- Suggest common business categories for expenses
-- Explain deduction eligibility in plain terms
-- Help organize receipts for quarterly/annual filing
-- Flag potentially non-deductible or questionable expenses
-- Remind users that receipts with card info should only show last 4 digits
-- When in doubt, recommend professional review
-
-Be concise, helpful, and honest.`;
+import { cixyUnavailableReply } from "@/lib/apixis-cixy";
+import { DEDUXIS_CIXY_SYSTEM } from "@/lib/deduxis-cixy";
 
 export async function POST(req: NextRequest) {
   const access = await guard({ route: "chat", max: 40 });
@@ -51,7 +25,7 @@ export async function POST(req: NextRequest) {
     const response = await anthropic.messages.create({
       model: "claude-sonnet-4-5",
       max_tokens: 1024,
-      system: CIXY_SYSTEM,
+      system: DEDUXIS_CIXY_SYSTEM,
       messages: messages.map((msg: { role: string; content: string }) => ({
         role: msg.role,
         content: msg.content,

@@ -19,7 +19,8 @@ test("locked pricing is shown and the old Recover wallet prices are gone", () =>
     assert.doesNotMatch(src, /\$220|\$440|recovra\.intel|recovix\.intel/i);
   }
   assert.match(header, /href="\/recover"/);
-  assert.match(pricing, /do not charge a card/);
+  assert.match(pricing, /does not charge a card/);
+  assert.match(pricing, /January 1, 2027/);
   assert.doesNotMatch(pricing, /handleRedeem|\/api\/redeem/);
 });
 

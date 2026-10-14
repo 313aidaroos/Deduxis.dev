@@ -14,7 +14,12 @@ test("world welcome card says 1,000 starter Ixis, never 200", () => {
 });
 
 test("Deduxis Cixy role has no religious guidance", () => {
-  const role = read("app/api/chat/route.ts");
-  assert.doesNotMatch(role, /halal|haram|riba|islamic|muslim|salam|ramadan|prayer/i);
+  const role = read("lib/deduxis-cixy.ts");
+  const route = read("app/api/chat/route.ts");
+  assert.doesNotMatch(`${role}\n${route}`, /halal|haram|riba|islamic|muslim|salam|ramadan|prayer/i);
   assert.match(role, /NOT a CPA/);
+  assert.match(role, /cixySystemPrompt/);
+  assert.match(role, /January 1, 2027/);
+  assert.match(role, /section of Deduxis/);
+  assert.match(route, /DEDUXIS_CIXY_SYSTEM/);
 });

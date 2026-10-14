@@ -254,3 +254,15 @@ Recorded by Grok (Developer Bot, notes and status sync at 12:25 AM CT on Oct 5).
 - **Where:** `lib/social.ts`, `components/site-header.tsx` (`SiteFooter`), `.footer-social` in `app/globals.css`.
 - **Who:** Deduxis Lead via cloud agent.
 - **Undo:** `git revert <sha of this commit>` on the Recover branch, or remove the footer anchor and the `.footer-social` rules.
+
+## 2026-10-14 — Launch billing, Cixy brief, readiness (Deduxis Lead via cloud agent)
+- **What:** Launch list in `docs/LAUNCH_READINESS.md`. Card checkout (Stripe Checkout, one Price per plan, metadata `product=deduxis`) and Ixis redeem for Receipts Personal ($10 / 1,000 Ixis), Receipts Business ($30 / 3,000 Ixis), and Monitor ($100 / 10,000 Ixis). Each paid purchase writes a ledger row and a receipt. Personal receipt cap is 100; Business is unlimited; the old `deduxis.receipts.monthly` seat stays at 200 and is not sold. Recover stays a free scan (25% fee is calculated, not charged). Enterprise is contact sales. Checkout refuses to charge when the price id, Wallet catalog, or purchase tables are missing. Deduxis Cixy uses the shared kit: Recover matches this theme, and the January 1, 2027 launch is mentioned only if asked. No religious greeting. No email sent. No second knowledge store. PR #33's Instagram footer was not redone on this branch. PR #32 was already on main.
+- **Where:** `docs/LAUNCH_READINESS.md`, `lib/catalog.ts`, `lib/deduxis-cixy.ts`, `lib/billing/*`, `app/api/checkout/route.ts`, `app/api/stripe/webhook/route.ts`, `app/api/billing/portal/route.ts`, `app/api/redeem/route.ts`, `app/account/purchases/page.tsx`, `components/plan-pay.tsx`, `components/manage-card.tsx`, `components/pricing-plans.tsx`, `lib/pricing-plans.ts`, `lib/guard.ts`, `lib/quota.ts`, `app/api/receipts/route.ts`, `app/api/extract/route.ts`, `app/api/chat/route.ts`, `app/pricing/page.tsx`, `app/recover/page.tsx`, `app/globals.css` (plan pay layout only), `supabase/migrations/20261014_purchase_ledger.sql` (not applied), `.env.example`, `docs/APIXIS_FAMILY.md`, `README.md`, `tests/billing.test.mjs`, `tests/locks.test.mjs`, `tests/recover-pricing.test.mjs`.
+- **Who:** Deduxis Lead via cloud agent.
+- **Undo:** `git revert <sha of this commit>` on main if it is merged, or close the draft PR. If the new migration was applied, drop `public.purchase_receipts`, `public.purchase_ledger`, and `public.billing_subscriptions` after a backup.
+
+## 2026-10-14 — Rebase billing branch onto main after #33 (Deduxis Lead via cloud agent)
+- **What:** Rebased `cursor/launch-billing-5f78` onto main (`14a05fd`, PR #33). Kept the Instagram footer and the billing work. The conflict was in `NOTES/GROK.md` and `AI_CHANGELOG.md` only; `app/globals.css` kept both `.footer-social` and `.plan-pay`. No migration applied. No env change. PR #34 was not merged.
+- **Where:** `NOTES/GROK.md`, `AI_CHANGELOG.md`, `docs/LAUNCH_READINESS.md`.
+- **Who:** Deduxis Lead via cloud agent.
+- **Undo:** Reset this branch to the pre-rebase commit `557e65c` and force-push only if the footer should leave this branch. That brings the conflict with main back.
