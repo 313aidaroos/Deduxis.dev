@@ -248,3 +248,9 @@ Recorded by Grok (Developer Bot, notes and status sync at 12:25 AM CT on Oct 5).
 - **Where:** Footer stays `components/site-header.tsx` (`SiteFooter`). No icon markup, no new CSS.
 - **Who:** Deduxis Lead via cloud agent.
 - **Undo:** Nothing to revert for the icons. This note is the record.
+
+## 2026-10-14 — Instagram footer icon (Deduxis Lead via cloud agent)
+- **What:** The site footer now links to the confirmed Deduxis Instagram account, https://www.instagram.com/deduxis.dev/. The icon uses the Deduxis ink and cobalt colors, opens in a new tab (`target="_blank"` `rel="noopener noreferrer"`), and has the aria-label "Deduxis on Instagram". Facebook stays off the page. Its URL, https://www.facebook.com/deduxis.dev, lives only in `lib/social.ts` so the icon can be added when that Page exists.
+- **Where:** `lib/social.ts`, `components/site-header.tsx` (`SiteFooter`), `.footer-social` in `app/globals.css`.
+- **Who:** Deduxis Lead via cloud agent.
+- **Undo:** `git revert <sha of this commit>` on the Recover branch, or remove the footer anchor and the `.footer-social` rules.

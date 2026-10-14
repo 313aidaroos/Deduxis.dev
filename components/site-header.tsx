@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ApixisWalletChip } from "@/components/ApixisWalletChip";
+import { socialProfiles } from "@/lib/social";
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
@@ -61,6 +62,19 @@ export function SiteFooter() {
           Deduxis<span className="brand-dot">.</span>
         </Link>
         <span className="family">Part of the Apixis family</span>
+        <a
+          className="footer-social"
+          href={socialProfiles.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Deduxis on Instagram"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1" />
+          </svg>
+        </a>
       </div>
       <nav aria-label="Footer navigation">
         <Link href="/recover">Recover</Link>
