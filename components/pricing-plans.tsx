@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PRICING_PLANS } from "@/lib/pricing-plans";
+import { PlanPay } from "@/components/plan-pay";
 
 export function PricingPlans() {
   return (
@@ -22,9 +23,13 @@ export function PricingPlans() {
               <li key={point}>{point}</li>
             ))}
           </ul>
-          <Link className="button primary" href={plan.href}>
-            {plan.cta} <span aria-hidden>↗</span>
-          </Link>
+          {plan.action === "subscribe" ? (
+            <PlanPay plan={plan.id} />
+          ) : (
+            <Link className="button primary" href={plan.href}>
+              {plan.cta} <span aria-hidden>↗</span>
+            </Link>
+          )}
         </article>
       ))}
     </div>

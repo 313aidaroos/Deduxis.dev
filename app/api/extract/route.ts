@@ -4,6 +4,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { receiptImage } from "@/lib/receipt-validation";
 import { guard } from "@/lib/guard";
 import { createServerSupabaseClient } from "@/lib/supabase-server";
+import { receiptCap } from "@/lib/catalog";
 import { quotaResponse, receiptsUsed, seatPeriodStart } from "@/lib/quota";
 
 const EXTRACTION_SYSTEM = `You are a receipt data extraction assistant. Extract structured data from receipt images.
@@ -44,6 +45,7 @@ export async function POST(req: NextRequest) {
             periodStart,
           ),
           periodStart,
+          receiptCap(access.seat?.product_key),
         );
     if (overCap) return overCap;
 

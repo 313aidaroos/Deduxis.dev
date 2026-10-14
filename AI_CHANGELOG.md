@@ -77,3 +77,11 @@ Entry format:
 ## 2026-10-14 — Deduxis Lead via cloud agent
 - Changed: footer Instagram icon linking to https://www.instagram.com/deduxis.dev/, styled with Deduxis colors. Facebook URL is stored in `lib/social.ts` and is not shown.
 - Why: The Instagram account is confirmed. The Facebook Page does not exist yet.
+
+## 2026-10-14 — Deduxis Lead via cloud agent
+- Changed: launch readiness doc; Stripe Checkout and Ixis redeem for the locked monthly plans; a purchase ledger and receipt for each payment; Personal 100 / Business unlimited receipt caps; Deduxis Cixy product role via the shared kit (Recover theme, launch date only if asked). Migration file recorded, not applied. No email, no deploy.
+- Why: January 1, 2027 launch. Card and Ixis both have to leave a receipt and a ledger entry, and the owner still has to create Stripe prices, Wallet SKUs, and apply the production migration.
+
+## 2026-10-14 — Deduxis Lead via cloud agent
+- Changed: notes only. Rebased the billing branch onto main after PR #33 so the Instagram footer and the billing work both stay.
+- Why: PR #34 conflicted with main. No migration applied and no env change.

@@ -3,7 +3,7 @@
 Lead developer: Claude (backend). Owner: Awad. The source of truth for the whole family is **ApixisWallet → `AGENTS.md`**. This note is the short version for this site.
 
 ## Rules
-1. **There is one Ixis balance: Apixis Wallet.** This site never stores, grants or computes its own Ixis balance and never runs its own Stripe checkout for plans or Ixis. It redeems from the Wallet.
+1. **There is one Ixis balance: Apixis Wallet.** This site never stores, grants, or computes its own Ixis balance, and it never sells Ixis. Ixis plan purchases call `redeem()` on the Wallet. Card plan purchases use Stripe Checkout on the one Apixis Dev LLC account: one Price per Deduxis plan, metadata `product=deduxis`. Other products on that Stripe account are ignored. Every Deduxis purchase, card or Ixis, gets a receipt and a ledger row in this site's database.
 2. **`lib/apixis-wallet.ts` and `lib/apixis-login.ts` are copies** of `ApixisWallet/sdk/apixis-wallet.ts` and `sdk/apixis-login-next.ts` (SDK v3). Don't fork or edit them here. Change them in ApixisWallet, then copy them over.
 3. **Who pays is the Apixis ID `sub`.** Pass `owner: await apixisOwner(user.email)` to `redeem()`. It uses the `sub` when the person signed in with Apixis, otherwise their verified email. Never pass this site's own Supabase uid, and never take an email from the request body.
 4. **Every paid action follows the same path:** `redeem()` does reserve → provision (write access) → capture. If the Wallet says `already_captured`, the customer was charged, so keep their access. Only a released hold means "not charged".
@@ -14,6 +14,7 @@ Lead developer: Claude (backend). Owner: Awad. The source of truth for the whole
 | Sign in with Apixis | `/auth/apixis/start?next=…` → Wallet → `/auth/apixis/callback`, plus the button in `components/SignInWithApixis.tsx` on the login page |
 | Shared balance + Buy Ixis link | `GET /api/wallet/balance` (the person's one Wallet balance, plus a `buy` URL that returns here) and `components/ApixisWalletChip.tsx` |
 | Buy Ixis | `buyIxisUrl("<app>", returnUrl)`. The Wallet sells the pack, then sends the person back here with the Ixis. The return host must be on the Wallet allowlist. |
+| Card checkout | `POST /api/checkout` opens Stripe Checkout for Receipts Personal, Receipts Business, or Monitor. `POST /api/stripe/webhook` writes the ledger and receipt. Price ids are env vars, empty until the owner creates them. |
 
 ## Env (Vercel, this site)
 - `WALLET_API_KEY`: this site's own `apx_live_…` key (from the Wallet lead)

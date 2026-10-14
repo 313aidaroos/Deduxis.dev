@@ -1955,4 +1955,17 @@ dialog h2 {
     font-size: 32px;
   }
 }
+.plan-pay {
+  margin-top: auto;
+  display: grid;
+  gap: 8px;
+}
+.plan-pay .button {
+  margin-top: 0;
+}
+.purchase-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
 
