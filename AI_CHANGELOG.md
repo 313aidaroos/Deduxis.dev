@@ -73,3 +73,7 @@ Entry format:
 ## 2026-10-13 — Deduxis Lead via cloud agent
 - Changed: notes only. Instagram and Facebook footer icons were not added.
 - Why: The likely @deduxis.dev profiles could not be confirmed. Both sites returned a login wall, and the public checks did not show a Deduxis account.
+
+## 2026-10-14 — Deduxis Lead via cloud agent
+- Changed: footer Instagram icon linking to https://www.instagram.com/deduxis.dev/, styled with Deduxis colors. Facebook URL is stored in `lib/social.ts` and is not shown.
+- Why: The Instagram account is confirmed. The Facebook Page does not exist yet.
