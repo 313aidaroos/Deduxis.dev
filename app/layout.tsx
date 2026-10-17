@@ -5,7 +5,7 @@ const description =
   "Turn everyday receipts into organized records you can review, categorize, and export.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://deduxis.vercel.app"),
+  metadataBase: new URL("https://deduxis.apixis.dev"),
   title: {
     default: "Deduxis — Every receipt. Everything in order.",
     template: "%s · Deduxis",
