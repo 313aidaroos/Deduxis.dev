@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ApixisWalletChip } from "@/components/ApixisWalletChip";
@@ -9,7 +10,13 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="site-nav container">
         <Link className="wordmark" href="/" aria-label="Deduxis home">
-          Deduxis<span className="brand-dot">.</span>
+          <Image
+            src="/brand/logo-full.png"
+            alt=""
+            width={2424}
+            height={488}
+            priority
+          />
         </Link>
         <nav
           aria-label="Main navigation"
