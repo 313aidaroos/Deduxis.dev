@@ -85,3 +85,7 @@ Entry format:
 ## 2026-10-14 — Deduxis Lead via cloud agent
 - Changed: notes only. Rebased the billing branch onto main after PR #33 so the Instagram footer and the billing work both stay.
 - Why: PR #34 conflicted with main. No migration applied and no env change.
+
+## 2026-10-17 — Deduxis Lead via cloud agent
+- Changed: `public/brand/` logo kit (family file names, plus `brand.json`), header lockup, and Next metadata icons and OG image. Removed the default Vercel favicon and unused starter SVGs.
+- Why: Deduxis had only a text wordmark and the default Vercel favicon. The kit follows the 2026-10-17 family standard. Banner and Facebook images are left for later.

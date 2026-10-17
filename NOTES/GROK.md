@@ -266,3 +266,9 @@ Recorded by Grok (Developer Bot, notes and status sync at 12:25 AM CT on Oct 5).
 - **Where:** `NOTES/GROK.md`, `AI_CHANGELOG.md`, `docs/LAUNCH_READINESS.md`.
 - **Who:** Deduxis Lead via cloud agent.
 - **Undo:** Reset this branch to the pre-rebase commit `557e65c` and force-push only if the footer should leave this branch. That brings the conflict with main back.
+
+## 2026-10-17 — Official logo kit (Deduxis Lead via cloud agent)
+- **What:** Added one logo kit at `public/brand/`, using the family file names: horizontal lockup, white lockup, mark, white mark, favicon.ico, favicon-32.png, apple-touch icon, 192 and 512 icons, og-image.png, brand.json, and README.md. Banner and Facebook images are not included. The header uses `logo-full.png` in place of the text wordmark. Metadata points at the favicon, app icons, and OG image. Removed the default Vercel `app/favicon.ico` and the unused Next starter SVGs in `public/`. Footer and sidebar wordmarks are unchanged. No SVG logos.
+- **Where:** `public/brand/`, `components/site-header.tsx`, `app/layout.tsx`, `app/globals.css` (header logo size only), `scripts/generate-brand.mjs`, `tests/brand.test.mjs`.
+- **Who:** Deduxis Lead via cloud agent.
+- **Undo:** Delete `public/brand/`, restore `app/favicon.ico` and the text wordmark in `SiteHeader`, and remove the metadata icons.

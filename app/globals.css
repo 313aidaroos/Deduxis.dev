@@ -95,6 +95,15 @@ img {
 .brand-dot {
   color: var(--blue);
 }
+.site-header .wordmark {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+.site-header .wordmark img {
+  height: 40px;
+  width: auto;
+}
 .site-header {
   position: sticky;
   top: 0;
@@ -1518,6 +1527,9 @@ dialog h2 {
   }
   .wordmark {
     font-size: 28px;
+  }
+  .site-header .wordmark img {
+    height: 32px;
   }
   .menu-toggle {
     display: block;

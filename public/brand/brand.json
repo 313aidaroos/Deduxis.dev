@@ -1,0 +1,27 @@
+{
+  "name": "Deduxis",
+  "domain": "deduxis.vercel.app",
+  "tagline": "Every receipt. Everything in order.",
+  "colors": {
+    "primary": "#14224b",
+    "accent": "#0753ed",
+    "background": "#fcfcff",
+    "text": "#14224b"
+  },
+  "fonts": [
+    "Georgia, Times New Roman, serif",
+    "Arial, Helvetica, sans-serif"
+  ],
+  "files": {
+    "logo-full.png": "Horizontal lockup, mark and name, transparent, for light backgrounds",
+    "logo-full-white.png": "Same lockup in white, transparent, for dark backgrounds",
+    "mark.png": "Icon only, transparent",
+    "mark-white.png": "Icon only, white, transparent",
+    "favicon.ico": "Browser tab icon",
+    "favicon-32.png": "32 pixel PNG icon",
+    "apple-touch-icon.png": "180 pixel Apple touch icon",
+    "icon-192.png": "192 pixel app icon",
+    "icon-512.png": "512 pixel app icon",
+    "og-image.png": "1200x630 link preview"
+  }
+}
