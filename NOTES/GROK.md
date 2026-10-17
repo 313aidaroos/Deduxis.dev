@@ -272,3 +272,9 @@ Recorded by Grok (Developer Bot, notes and status sync at 12:25 AM CT on Oct 5).
 - **Where:** `public/brand/`, `components/site-header.tsx`, `app/layout.tsx`, `app/globals.css` (header logo size only), `scripts/generate-brand.mjs`, `tests/brand.test.mjs`.
 - **Who:** Deduxis Lead via cloud agent.
 - **Undo:** Delete `public/brand/`, restore `app/favicon.ico` and the text wordmark in `SiteHeader`, and remove the metadata icons.
+
+## 2026-10-17 — Official D mark replaces the generic document icon (Deduxis Lead via cloud agent)
+- **What:** Rebuilt `public/brand/` from the official Deduxis D in the banner (purple and white letter, document and swoosh inside). The dark glow was removed. The D was not redrawn. `mark.png` and `mark-white.png` are 1024 transparent. `logo-full.png` and `logo-full-white.png` place that D beside the banner's own Deduxis letters (ink on the light lockup, white on the dark one). Favicon, apple-touch, 192, 512, and the OG image were rebuilt from the same mark. File names are unchanged. Banner and Facebook files are still absent. Header image ratio updated to 2618×880. `scripts/generate-brand.mjs` now refuses to draw over the kit.
+- **Where:** `public/brand/`, `components/site-header.tsx`, `scripts/generate-brand.mjs`, `NOTES/GROK.md`, `AI_CHANGELOG.md`.
+- **Who:** Deduxis Lead via cloud agent.
+- **Undo:** `git revert <sha of this commit>` to restore the generic document mark from PR #35.
