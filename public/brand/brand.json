@@ -13,10 +13,10 @@
     "Arial, Helvetica, sans-serif"
   ],
   "files": {
-    "logo-full.png": "Horizontal lockup, mark and name, transparent, for light backgrounds",
+    "logo-full.png": "Horizontal lockup: official D plus the Deduxis name in ink, transparent, for light backgrounds",
     "logo-full-white.png": "Same lockup in white, transparent, for dark backgrounds",
-    "mark.png": "Icon only, transparent",
-    "mark-white.png": "Icon only, white, transparent",
+    "mark.png": "Official D mark only, transparent. Extracted from the banner. Do not redraw.",
+    "mark-white.png": "Official D mark only, white, transparent",
     "favicon.ico": "Browser tab icon",
     "favicon-32.png": "32 pixel PNG icon",
     "apple-touch-icon.png": "180 pixel Apple touch icon",

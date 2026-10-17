@@ -89,3 +89,7 @@ Entry format:
 ## 2026-10-17 — Deduxis Lead via cloud agent
 - Changed: `public/brand/` logo kit (family file names, plus `brand.json`), header lockup, and Next metadata icons and OG image. Removed the default Vercel favicon and unused starter SVGs.
 - Why: Deduxis had only a text wordmark and the default Vercel favicon. The kit follows the 2026-10-17 family standard. Banner and Facebook images are left for later.
+
+## 2026-10-17 — Deduxis Lead via cloud agent
+- Changed: `public/brand/` mark, white mark, both lockups, favicon, apple-touch icon, 192 and 512 icons, and OG image. Header image dimensions. `scripts/generate-brand.mjs` now exits instead of drawing a new icon.
+- Why: The kit's mark was a generic document. The official mark is the purple and white D from the banner, with the document and swoosh inside it. Those pixels were extracted onto a transparent background and upscaled. The D was not redrawn.
