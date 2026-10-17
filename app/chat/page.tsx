@@ -62,6 +62,7 @@ function ChatInner() {
       </div>
       <div className="chat-layout">
         <div className="cixy-intro">
+          <img className="cixy-avatar" src="/cixy/cixy-deduxis-avatar.webp" alt="Cixy" width={56} height={56} />
           <span className="eyebrow">HELLO, I’M CIXY</span>
           <h2>Let’s make sense of it.</h2>
           <p>
@@ -83,7 +84,12 @@ function ChatInner() {
         <div className="chat-messages" aria-live="polite">
           {messages.map((m, i) => (
             <div key={i} className={`bubble ${m.role}`}>
-              <strong>{m.role === "user" ? "You" : "Cixy"}</strong>
+              <strong>
+                {m.role !== "user" && (
+                  <img className="cixy-avatar-sm" src="/cixy/cixy-deduxis-avatar.webp" alt="" width={20} height={20} />
+                )}
+                {m.role === "user" ? "You" : "Cixy"}
+              </strong>
               {m.content}
             </div>
           ))}

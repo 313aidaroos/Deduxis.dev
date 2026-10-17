@@ -1981,3 +1981,7 @@ dialog h2 {
   margin-top: 16px;
 }
 
+
+/* Cixy avatar (themed Deduxis outfit) */
+.cixy-intro .cixy-avatar { display: block; width: 56px; height: 56px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
+.cixy-avatar-sm { display: inline-block; width: 20px; height: 20px; border-radius: 50%; object-fit: cover; vertical-align: middle; margin-right: 6px; }
