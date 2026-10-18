@@ -89,3 +89,7 @@ Entry format:
 ## 2026-10-17 — Deduxis Lead via cloud agent
 - Changed: `public/brand/` logo kit (family file names, plus `brand.json`), header lockup, and Next metadata icons and OG image. Removed the default Vercel favicon and unused starter SVGs.
 - Why: Deduxis had only a text wordmark and the default Vercel favicon. The kit follows the 2026-10-17 family standard. Banner and Facebook images are left for later.
+
+## 2026-10-18 — Grok: footer "Ixis companies" popover (PR #10 redesign)
+- Changed: footer nav gets an "Ixis companies" button (`components/IxisCompanies.tsx`). Hover/focus on desktop and tap on mobile open a panel listing every current Ixis company with a one-line brief and a link. List in `lib/ixis-companies.ts`: current names (Ominixis, not Nexxis; no Recovra, merged into Deduxis; no The Flock Spot), live .dev / apixis.dev domains only, never *.vercel.app. Styles appended to `app/globals.css`.
+- Why: Awad asked for a clean footer element instead of a row of plain links. No env, Stripe, or migration changes.
