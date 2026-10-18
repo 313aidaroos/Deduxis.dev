@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createServerSupabaseClient } from "@/lib/supabase-server";
 import { validatedReceipt, receiptImage } from "@/lib/receipt-validation";
 import { guard } from "@/lib/guard";
+import { receiptCap } from "@/lib/catalog";
 import { quotaResponse, receiptsUsed, seatPeriodStart } from "@/lib/quota";
 
 export async function POST(req: NextRequest) {
@@ -12,12 +13,15 @@ export async function POST(req: NextRequest) {
     const user = access.user;
     const supabase = await createServerSupabaseClient();
 
-    // Seat includes 200 receipts per 30-day period.
+    // Personal: 100 / month. Business: unlimited. Legacy seat: 200.
     const periodStart = seatPeriodStart(access.seat?.renews_at ?? null);
-    const overCap = quotaResponse(
-      await receiptsUsed(supabase, user.id, periodStart),
-      periodStart,
-    );
+    const overCap = access.owner
+      ? null
+      : quotaResponse(
+          await receiptsUsed(supabase, user.id, periodStart),
+          periodStart,
+          receiptCap(access.seat?.product_key),
+        );
     if (overCap) return overCap;
 
     const {

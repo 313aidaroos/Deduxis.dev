@@ -66,15 +66,24 @@ export async function magicLink(form: FormData) {
   const { error } = await supabase.auth.signInWithOtp({
     email,
     options: {
-      shouldCreateUser: true,
+      shouldCreateUser: false, // 2026-10-04 (Grok): existing accounts only; new accounts use Apixis ID
       emailRedirectTo: `${base}/auth/callback?next=${encodeURIComponent(`/set-password?next=${encodeURIComponent(next)}`)}`,
     },
   });
 
-  if (error) return { success: false, message: error.message };
+  if (error) {
+    // Unknown email: refused because shouldCreateUser is false. Point to Apixis ID.
+    if (/signups? not allowed|otp_disabled|user not found/i.test(`${error.code ?? ""} ${error.message}`))
+      return {
+        success: false,
+        message:
+          "No Deduxis account uses this email yet. New here? Use Sign in with Apixis to create your account.",
+      };
+    return { success: false, message: error.message };
+  }
   return {
     success: true,
-    message: `Check ${email} — the sign-in link is on its way. First time? You will choose a password after it opens.`,
+    message: `Check ${email} — the sign-in link is on its way.`,
   };
 }
 

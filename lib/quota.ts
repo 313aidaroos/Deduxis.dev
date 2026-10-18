@@ -2,7 +2,10 @@
 import { NextResponse } from "next/server";
 import type { SupabaseClient } from "@supabase/supabase-js";
 
-/** Receipt Intelligence seat: "Seat + 200 receipts" per 30-day period (Apixis Wallet catalog). */
+/**
+ * Legacy Receipt Intelligence seat cap (deduxis.receipts.monthly).
+ * Personal is 100 and Business is unlimited; see receiptCap() in lib/catalog.ts.
+ */
 export const RECEIPT_CAP = 200;
 const PERIOD_MS = 30 * 24 * 60 * 60 * 1000;
 
@@ -33,8 +36,9 @@ export async function receiptsUsed(supabase: SupabaseClient, userId: string, sin
   return count ?? 0;
 }
 
-/** null when there is room; otherwise the 403 to return. */
-export function quotaResponse(used: number, start: Date, cap = RECEIPT_CAP): NextResponse | null {
+/** null when there is room, or when the plan is unlimited (cap === null). */
+export function quotaResponse(used: number, start: Date, cap: number | null): NextResponse | null {
+  if (cap === null) return null;
   if (used < cap) return null;
   const resets = periodEnd(start).toISOString().slice(0, 10);
   return NextResponse.json(

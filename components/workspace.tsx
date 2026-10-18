@@ -6,6 +6,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { WorkspaceShell } from "./workspace-shell";
 import { ReceiptForm } from "./receipt-form";
 import { ReceiptUpload } from "./receipt-upload";
+import { ApixisWorldWelcome } from "./ApixisWorldWelcome";
 import {
   Receipt,
   sampleReceipts,
@@ -249,6 +250,7 @@ export default function Workspace({ demo = false }: { demo?: boolean }) {
   );
   return (
     <WorkspaceShell demo={demo}>
+      {!demo && <ApixisWorldWelcome />}
       <div className="workspace-title">
         <div>
           <h1>{title}</h1>

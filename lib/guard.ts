@@ -2,12 +2,14 @@
 import { NextResponse } from "next/server";
 import type { User } from "@supabase/supabase-js";
 import { createServerSupabaseClient } from "@/lib/supabase-server";
-import { entitlements, type Entitlement } from "@/lib/apixis-wallet";
+import { entitlements } from "@/lib/apixis-wallet";
+import { isOwner } from "@/lib/owners";
+import { activeCardReceiptSeat, bestReceiptSeat, type SeatRef } from "@/lib/billing/seat";
 
 export const SEAT_PRODUCT = "deduxis.receipts.monthly";
 
 type Guarded =
-  | { ok: true; user: User; seat: Entitlement | null }
+  | { ok: true; user: User; seat: SeatRef | null; owner: boolean }
   | { ok: false; response: NextResponse };
 
 // Per-instance limiter for AI calls (serverless instances don't share memory: a speed bump,
@@ -55,11 +57,20 @@ export async function guard(opts: {
       ),
     };
   }
-  let seat: Entitlement | null = null;
+  // Owner bypass (lib/owners.ts): proven owner session skips the seat check (and, in the
+  // callers, the receipt cap). No entitlement is written and the Wallet is not charged.
+  let owner = false;
   if (opts.seat) {
-    let owned: Entitlement[];
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+    owner = isOwner(user, session?.access_token);
+  }
+  let seat: SeatRef | null = null;
+  if (opts.seat && !owner) {
+    let card: SeatRef | null = null;
     try {
-      owned = await entitlements(user.email, "deduxis");
+      card = await activeCardReceiptSeat(supabase, user.id);
     } catch {
       return {
         ok: false,
@@ -69,10 +80,29 @@ export async function guard(opts: {
         ),
       };
     }
-    seat =
-      owned.find(
-        (e) => e.product_key === SEAT_PRODUCT && e.status === "active",
-      ) ?? null;
+    let wallet: SeatRef | null = null;
+    try {
+      const owned = await entitlements(user.email, "deduxis");
+      wallet = bestReceiptSeat(
+        owned
+          .filter((entry) => entry.status === "active")
+          .map((entry) => ({
+            product_key: entry.product_key,
+            renews_at: entry.renews_at,
+          })),
+      );
+    } catch {
+      if (!card) {
+        return {
+          ok: false,
+          response: NextResponse.json(
+            { error: "We could not check your plan. Please try again shortly." },
+            { status: 503 },
+          ),
+        };
+      }
+    }
+    seat = bestReceiptSeat([card, wallet]);
     if (!seat) {
       return {
         ok: false,
@@ -98,5 +128,5 @@ export async function guard(opts: {
       ),
     };
   }
-  return { ok: true, user, seat };
+  return { ok: true, user, seat, owner };
 }

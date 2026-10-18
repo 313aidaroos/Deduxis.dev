@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
   if (code) {
     await supabase.auth.exchangeCodeForSession(code);
   } else if (token_hash) {
-    await supabase.auth.verifyOtp({ type: "magiclink", token_hash });
+    await supabase.auth.verifyOtp({ type: "email", token_hash });
   }
 
   return NextResponse.redirect(new URL(next, url.origin));

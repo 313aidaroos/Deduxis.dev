@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useSyncExternalStore } from "react";
 
 /**
  * The shared Apixis Wallet inside this site: the person's one Ixis balance as a small pill
@@ -67,14 +67,18 @@ export function useApixisWallet(): WalletState {
   return useSyncExternalStore(subscribe, () => current, () => INITIAL);
 }
 
+// Current path for the sign-in link, read as an external store (no setState-in-effect).
+function subscribeLocation(listener: () => void) {
+  window.addEventListener("popstate", listener);
+  return () => window.removeEventListener("popstate", listener);
+}
+function currentPath() {
+  return window.location.pathname + window.location.search;
+}
+
 export function ApixisWalletChip({ className, next, hideSignedOut = false }: { className?: string; next?: string; hideSignedOut?: boolean }) {
   const wallet = useApixisWallet();
-  const [here, setHere] = useState("/");
-  useEffect(() => {
-    // Pre-existing: reads window after mount to avoid a hydration mismatch.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setHere(window.location.pathname + window.location.search);
-  }, []);
+  const here = useSyncExternalStore(subscribeLocation, currentPath, () => "/");
   const signIn = `/auth/apixis/start?next=${encodeURIComponent(next ?? here)}`;
   const amount = wallet.available === null ? "—" : wallet.available.toLocaleString();
   if (hideSignedOut && (!wallet.loaded || !wallet.signedIn)) return null;

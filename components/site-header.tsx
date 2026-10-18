@@ -1,15 +1,23 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ApixisWalletChip } from "@/components/ApixisWalletChip";
-import { IXIS_COMPANIES } from "@/lib/ixis-companies";
+import { socialProfiles } from "@/lib/social";
+import { IxisCompanies } from "@/components/IxisCompanies";
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
     <header className="site-header">
       <div className="site-nav container">
         <Link className="wordmark" href="/" aria-label="Deduxis home">
-          Deduxis<span className="brand-dot">.</span>
+          <Image
+            src="/brand/logo-full.png"
+            alt=""
+            width={2424}
+            height={488}
+            priority
+          />
         </Link>
         <nav
           aria-label="Main navigation"
@@ -21,6 +29,11 @@ export function SiteHeader() {
           <Link onClick={() => setOpen(false)} href="/#features">
             Features
           </Link>
+          <Link onClick={() => setOpen(false)} href="/recover">
+            Recover
+          </Link>
+          <Link onClick={() => setOpen(false)} href="/companies">Apixis Companies</Link>
+          <Link onClick={() => setOpen(false)} href="/feed">Feed</Link>
           <Link onClick={() => setOpen(false)} href="/pricing">
             Pricing
           </Link>
@@ -57,24 +70,27 @@ export function SiteFooter() {
           Deduxis<span className="brand-dot">.</span>
         </Link>
         <span className="family">Part of the Apixis family</span>
+        <a
+          className="footer-social"
+          href={socialProfiles.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Deduxis on Instagram"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1" />
+          </svg>
+        </a>
       </div>
       <nav aria-label="Footer navigation">
+        <Link href="/recover">Recover</Link>
         <Link href="/#faq">Questions & answers</Link>
         <Link href="/pricing">Pricing</Link>
         <Link href="/chat">Ask Cixy</Link>
-      </nav>
-      <nav className="ixis-companies" aria-label="Other Ixis companies">
-        <span className="family">Other Ixis companies</span>
-        {IXIS_COMPANIES.map((company) => (
-          <a
-            key={company.url}
-            href={company.url}
-            target="_blank"
-            rel="noopener"
-          >
-            {company.name}
-          </a>
-        ))}
+        <Link href="/support">Support</Link>
+        <IxisCompanies />
       </nav>
       <p>
         Organize with confidence. Confirm filing decisions with your tax

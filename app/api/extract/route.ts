@@ -4,6 +4,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { receiptImage } from "@/lib/receipt-validation";
 import { guard } from "@/lib/guard";
 import { createServerSupabaseClient } from "@/lib/supabase-server";
+import { receiptCap } from "@/lib/catalog";
 import { quotaResponse, receiptsUsed, seatPeriodStart } from "@/lib/quota";
 
 const EXTRACTION_SYSTEM = `You are a receipt data extraction assistant. Extract structured data from receipt images.
@@ -35,14 +36,17 @@ export async function POST(req: NextRequest) {
   try {
     // Don't pay for an AI scan the seat can't save: stop at the monthly receipt cap.
     const periodStart = seatPeriodStart(access.seat?.renews_at ?? null);
-    const overCap = quotaResponse(
-      await receiptsUsed(
-        await createServerSupabaseClient(),
-        access.user.id,
-        periodStart,
-      ),
-      periodStart,
-    );
+    const overCap = access.owner
+      ? null
+      : quotaResponse(
+          await receiptsUsed(
+            await createServerSupabaseClient(),
+            access.user.id,
+            periodStart,
+          ),
+          periodStart,
+          receiptCap(access.seat?.product_key),
+        );
     if (overCap) return overCap;
 
     const apiKey = process.env.ANTHROPIC_API_KEY;

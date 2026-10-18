@@ -34,8 +34,8 @@ function LoginInner() {
         All in order.
       </h1>
       <p>
-        Sign in to organize your receipts. New here? An email link creates your
-        account.
+        Sign in to organize your receipts. New here? Create your account with
+        Sign in with Apixis. Email link and password are for existing accounts.
       </p>
       <SignInWithApixis />
       <div className="auth-tabs" role="tablist" aria-label="Sign-in method">
