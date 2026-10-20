@@ -93,3 +93,11 @@ Entry format:
 ## 2026-10-17 — Deduxis Lead via cloud agent
 - Changed: `public/brand/` mark, white mark, both lockups, favicon, apple-touch icon, 192 and 512 icons, and OG image. Header image dimensions. `scripts/generate-brand.mjs` now exits instead of drawing a new icon.
 - Why: The kit's mark was a generic document. The official mark is the purple and white D from the banner, with the document and swoosh inside it. Those pixels were extracted onto a transparent background and upscaled. The D was not redrawn.
+
+## 2026-10-18 — Grok: footer "Ixis companies" popover (PR #10 redesign)
+- Changed: footer nav gets an "Ixis companies" button (`components/IxisCompanies.tsx`). Hover/focus on desktop and tap on mobile open a panel listing every current Ixis company with a one-line brief and a link. List in `lib/ixis-companies.ts`: current names (Ominixis, not Nexxis; no Recovra, merged into Deduxis; no The Flock Spot), live .dev / apixis.dev domains only, never *.vercel.app. Styles appended to `app/globals.css`.
+- Why: Awad asked for a clean footer element instead of a row of plain links. No env, Stripe, or migration changes.
+
+## 2026-10-20 — Deduxis Lead via cloud agent
+- Changed: merged latest main into `cursor/official-d-mark-5f78`. Changelog conflict kept the official D entry and the footer Ixis companies entry.
+- Why: PR #36 conflicted with main. The purple D PNGs stay, and so do the footer Ixis links, Cixy outfit, companies list, and apixis.dev URLs. No SVG, env, or migration changes.

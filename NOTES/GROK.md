@@ -278,3 +278,9 @@ Recorded by Grok (Developer Bot, notes and status sync at 12:25 AM CT on Oct 5).
 - **Where:** `public/brand/`, `components/site-header.tsx`, `scripts/generate-brand.mjs`, `NOTES/GROK.md`, `AI_CHANGELOG.md`.
 - **Who:** Deduxis Lead via cloud agent.
 - **Undo:** `git revert <sha of this commit>` to restore the generic document mark from PR #35.
+
+## 2026-10-20 — Merge main into the official D branch (Deduxis Lead via cloud agent)
+- **What:** Merged `origin/main` (`2aa7e46`) into `cursor/official-d-mark-5f78`. Kept the official purple D PNGs and the header lockup size. Kept main’s footer Ixis companies list, Cixy outfit, companies page, and `deduxis.apixis.dev` URLs. The only conflict was `AI_CHANGELOG.md`; both entries stayed. No SVG added. No env or migration change.
+- **Where:** `AI_CHANGELOG.md`, `NOTES/GROK.md`. Incoming main files: `components/IxisCompanies.tsx`, `lib/ixis-companies.ts`, `app/companies/page.tsx`, `app/chat/page.tsx`, `app/globals.css`, `app/layout.tsx`, `public/cixy/`, `tests/billing.test.mjs`, `WORKBOARD.md`.
+- **Who:** Deduxis Lead via cloud agent.
+- **Undo:** `git reset --hard cea527f` on this branch and force-push only if main’s newer work should leave the branch. That brings the conflict with main back.

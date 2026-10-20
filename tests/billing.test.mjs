@@ -50,7 +50,7 @@ test("card checkout is a Deduxis subscription and does not pin payment methods",
     userId: USER,
     email: "owner@example.com",
     plan: planById("receipts_personal"),
-    origin: "https://deduxis.vercel.app/",
+    origin: "https://deduxis.apixis.dev/",
     integrationIdentifier: integrationIdentifier("abcdefgh"),
   });
   assert.equal(params.mode, "subscription");
@@ -61,7 +61,7 @@ test("card checkout is a Deduxis subscription and does not pin payment methods",
   assert.equal("payment_method_types" in params, false);
   assert.equal("automatic_tax" in params, false);
   assert.match(params.integration_identifier, /^deduxis_checkout_[a-z]{8}$/);
-  assert.equal(params.success_url, "https://deduxis.vercel.app/account/purchases?checkout=return");
+  assert.equal(params.success_url, "https://deduxis.apixis.dev/account/purchases?checkout=return");
 });
 
 test("stripe events ignore other products on the shared account", () => {

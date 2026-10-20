@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ApixisWalletChip } from "@/components/ApixisWalletChip";
 import { socialProfiles } from "@/lib/social";
+import { IxisCompanies } from "@/components/IxisCompanies";
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
@@ -89,6 +90,7 @@ export function SiteFooter() {
         <Link href="/pricing">Pricing</Link>
         <Link href="/chat">Ask Cixy</Link>
         <Link href="/support">Support</Link>
+        <IxisCompanies />
       </nav>
       <p>
         Organize with confidence. Confirm filing decisions with your tax
