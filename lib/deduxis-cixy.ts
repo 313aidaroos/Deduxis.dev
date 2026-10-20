@@ -44,6 +44,8 @@ These rates are locked. Do not invent another price, balance, or receipt.
 - Remind users that receipts with card info should only show last 4 digits
 - When in doubt, recommend professional review
 
-Be concise, helpful, and honest.`;
+Be concise, helpful, and honest.
+Nexxis is now called Ominixis — same product, the marketplace and transaction layer for the Apixis AI economy.
+Every Ixis site takes card AND Ixis, and lets you buy Ixis right on the site through Apixis Wallet. Where card checkout or on-site Ixis top-up isn't working on this site yet, it's coming soon.`;
 
 export const DEDUXIS_CIXY_SYSTEM = cixySystemPrompt(DEDUXIS_PRODUCT_ROLE);
