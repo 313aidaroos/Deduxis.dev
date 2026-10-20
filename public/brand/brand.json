@@ -13,11 +13,11 @@
     "Arial, Helvetica, sans-serif"
   ],
   "files": {
-    "logo-full.png": "Horizontal lockup: official D plus the Deduxis name in ink, transparent, for light backgrounds",
-    "logo-full-white.png": "Same lockup in white, transparent, for dark backgrounds",
-    "mark.png": "Official D mark only, transparent. Extracted from the banner. Do not redraw.",
-    "mark-white.png": "Official D mark only, white, transparent",
-    "favicon.ico": "Browser tab icon",
+    "logo-full.png": "Header lockup: the official Deduxis tile on the left, Deduxis in Georgia Bold ink #14224b, transparent",
+    "logo-full-white.png": "Same lockup with white text for dark backgrounds (tile unchanged)",
+    "mark.png": "Official Deduxis tile (D on navy rounded tile), 720 px, transparent rounded corners. Do not redraw or re-cut.",
+    "mark-white.png": "Same tile as mark.png (the tile already works on dark backgrounds); kept for the family file names",
+    "favicon.ico": "Browser tab icon (16/32/48), cropped to the D on the tile background",
     "favicon-32.png": "32 pixel PNG icon",
     "apple-touch-icon.png": "180 pixel Apple touch icon",
     "icon-192.png": "192 pixel app icon",
