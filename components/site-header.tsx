@@ -14,8 +14,8 @@ export function SiteHeader() {
           <Image
             src="/brand/logo-full.png"
             alt=""
-            width={2424}
-            height={488}
+            width={2618}
+            height={880}
             priority
           />
         </Link>
