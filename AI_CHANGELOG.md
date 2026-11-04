@@ -101,3 +101,7 @@ Entry format:
 ## 2026-10-20 — Deduxis Lead via cloud agent
 - Changed: merged latest main into `cursor/official-d-mark-5f78`. Changelog conflict kept the official D entry and the footer Ixis companies entry.
 - Why: PR #36 conflicted with main. The purple D PNGs stay, and so do the footer Ixis links, Cixy outfit, companies list, and apixis.dev URLs. No SVG, env, or migration changes.
+
+## 2026-10-20 — Deduxis Lead via cloud agent
+- Changed: `lib/deduxis-cixy.ts` Deduxis product role, the text appended through `cixySystemPrompt`.
+- Why: Cixy on Deduxis needs the Ominixis rename and the family rule that every Ixis site takes card and Ixis, with on-site Ixis top-up through Apixis Wallet. No other persona change. No SVG.

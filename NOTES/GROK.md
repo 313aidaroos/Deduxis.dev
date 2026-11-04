@@ -284,3 +284,9 @@ Recorded by Grok (Developer Bot, notes and status sync at 12:25 AM CT on Oct 5).
 - **Where:** `AI_CHANGELOG.md`, `NOTES/GROK.md`. Incoming main files: `components/IxisCompanies.tsx`, `lib/ixis-companies.ts`, `app/companies/page.tsx`, `app/chat/page.tsx`, `app/globals.css`, `app/layout.tsx`, `public/cixy/`, `tests/billing.test.mjs`, `WORKBOARD.md`.
 - **Who:** Deduxis Lead via cloud agent.
 - **Undo:** `git reset --hard cea527f` on this branch and force-push only if main’s newer work should leave the branch. That brings the conflict with main back.
+
+## 2026-10-20 — Cixy: Ominixis name and card-plus-Ixis (Deduxis Lead via cloud agent)
+- **What:** Added two lines to the Deduxis product role that `cixySystemPrompt` appends. Nexxis is now Ominixis, the same marketplace and transaction layer. Every Ixis site takes card and Ixis, and Ixis can be bought on the site through Apixis Wallet; where card checkout or on-site Ixis top-up is not working yet, it is coming soon. No other persona text changed. No SVG.
+- **Where:** `lib/deduxis-cixy.ts`, `NOTES/GROK.md`, `AI_CHANGELOG.md`.
+- **Who:** Deduxis Lead via cloud agent.
+- **Undo:** `git revert <sha of this commit>` to drop those two lines from the Deduxis role.
